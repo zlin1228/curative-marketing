@@ -1,0 +1,8 @@
+fragment category on TaxonomyBlogCategory {
+  sys {
+    ...sys
+  }
+  title
+  subtitle
+  slug
+}

@@ -1,0 +1,17 @@
+fragment sys on Sys {
+  id
+}
+
+fragment asset on Asset {
+  sys {
+    ...sys
+  }
+  title
+  description
+  contentType
+  fileName
+  size
+  url
+  width
+  height
+}

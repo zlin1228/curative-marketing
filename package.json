@@ -1,0 +1,117 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "setup": "node ./contentful/setup.js $NEXT_PUBLIC_CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN",
+    "prepare": "husky install",
+    "pretty-quick": "pretty-quick",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx,mdx}\" --fix",
+    "generate-sdk": "DOTENV_CONFIG_PATH=.env graphql-codegen -r dotenv/config"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.8.6",
+    "@contentful/rich-text-plain-text-renderer": "^16.0.2",
+    "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@contentful/rich-text-types": "^16.0.2",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-portal": "^1.0.4",
+    "@radix-ui/react-toggle": "^1.0.3",
+    "@radix-ui/react-visually-hidden": "^1.0.3",
+    "@reach/router": "^1.3.4",
+    "@react-hookz/web": "^23.1.0",
+    "@sentry/nextjs": "^6.19.7",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.1.3",
+    "classnames": "2.3.1",
+    "contentful": "^9.1.28",
+    "cookie": "^0.5.0",
+    "date-fns": "2.28.0",
+    "formik": "^2.2.9",
+    "graphql": "^16.5.0",
+    "lodash.isequal": "^4.5.0",
+    "next": "12.3.0",
+    "next-translate": "^2.6.2",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.2.1",
+    "react-dom": "^17.0.2",
+    "react-fast-marquee": "^1.3.5",
+    "react-gtm-module": "^2.0.11",
+    "react-hubspot-form": "^1.3.7",
+    "react-icons": "^4.3.1",
+    "react-markdown": "^8.0.3",
+    "react-pdf": "^5.7.2",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-use": "^17.4.0",
+    "sass": "^1.52.0",
+    "styled-components": "^5.3.5",
+    "swiper": "^8.4.4",
+    "urql": "^2.2.0",
+    "validator": "^13.7.0",
+    "xmlbuilder": "^15.1.1",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-react-apollo": "^4.0.0",
+    "@types/node": "^20.9.1",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@types/styled-components": "^5.1.29",
+    "@types/yup": "^0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "autoprefixer": "10.4.2",
+    "concurrently": "^7.2.0",
+    "contentful-import": "^7.8.7",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "13.5.5",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-absolute-only": "^1.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-no-inline-styles": "^1.0.5",
+    "eslint-plugin-no-relative-import-paths": "^1.5.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.1.0",
+    "next-translate-plugin": "^2.6.2",
+    "postcss": "8.4.5",
+    "prettier": "2.6.2",
+    "pretty-quick": "^3.1.3",
+    "tailwindcss": "^3.0.15",
+    "typescript": "^5.2.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,mjs,ts,tsx,mts,mdx}": [
+      "eslint --fix",
+      "prettier --write --loglevel silent"
+    ]
+  }
+}

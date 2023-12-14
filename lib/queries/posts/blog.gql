@@ -1,0 +1,28 @@
+fragment blogPostCard on BlogPost {
+  sys {
+    ...sys
+  }
+  slug
+  title
+  categoryCollection {
+    items {
+      ...category
+    }
+  }
+  featuredImage {
+    ...asset
+  }
+  excerpt
+  publishDate
+}
+
+query getBlogPosts($locale: String, $limit: Int!, $skip: Int) {
+  blogPostCollection(locale: $locale, limit: $limit, skip: $skip, order: publishDate_DESC) {
+    limit
+    skip
+    total
+    items {
+      ...blogPostCard
+    }
+  }
+}

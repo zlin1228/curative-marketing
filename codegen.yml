@@ -1,0 +1,26 @@
+schema:
+  - https://graphql.contentful.com/content/v1/spaces/${NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/${NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT}:
+      headers:
+        Authorization: 'Bearer ${NEXT_PUBLIC_CONTENTFUL_GRAPH_ACCESS_TOKEN}'
+documents:
+  - ./**/*.gql
+generates:
+  lib/types.ts:
+    plugins:
+      - typescript:
+          disableDescriptions: true
+      - typescript-operations:
+          globalNamespace: true
+    config:
+      declarationKind: 'interface'
+      inlineFragmentTypes: 'combine'
+  lib/sdk.ts:
+    plugins:
+      - typescript-react-apollo:
+          documentVariableSuffix: 'Query'
+          fragmentVariableSuffix: 'Fragment'
+          nonOptionalTypename: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+    - eslint --fix
